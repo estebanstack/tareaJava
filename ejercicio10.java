@@ -8,9 +8,8 @@ public class ejercicio10 {
 
         String[] texto = {"Hola ", "a ", "todos ", " como estan"};
 
-        String suma = "";
         for (String concatenar : texto) {
-            System.out.println(concatenar);
+            System.out.print(concatenar);
         }
         }
     }
