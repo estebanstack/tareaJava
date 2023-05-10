@@ -90,8 +90,13 @@ public class Main {
         } finally {
             System.out.println("Demo de codigo");
         }
+            Scanner scanner = new Scanner(System.in);
 
-
+        System.out.println("Ingrese el fichero 1: ");
+        String fichero1= scanner.nextLine();
+        System.out.println("Ingrese el fichero 2: ");
+        String fichero2 = scanner.nextLine();
+        copiaFichero(fichero1, fichero2);
         }
 
 
@@ -99,7 +104,7 @@ public class Main {
 
 
 
-    
+
 
 
     public static String reverse(String texto) {
@@ -127,13 +132,15 @@ public class Main {
         return result;
     }
 
-    static void copiaFichero(byte fichero, byte fichero2){
+    static void copiaFichero(String filein, String fileout){
         try{
-            InputStream filein = new FileInputStream("doc.txt");
-            byte[] datos = filein.readAllBytes();
+            InputStream in = new FileInputStream(filein);
+            byte[] datos = in.readAllBytes();
+            in.close();
 
-            PrintStream fileout = new PrintStream("destino.txt");
-            fileout.write(datos);
+            PrintStream out = new PrintStream(fileout);
+            out.write(datos);
+            out.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
